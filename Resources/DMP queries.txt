@@ -1,0 +1,91 @@
+TCP and RS232 commands for Extron DMP64 and DMP128 units
+--------------------------------------------------------
+
+This is not exhaustive. I have only included some of the documented commands, but most of the undocumented ones that I have found.
+
+*Q				: Build version. Example response: 1.11.000 or Bld1.11.0001
+Q				: Version. Example response: 1.11 or Ver01*1.11
+1Q				: Example response: Ver01*1.11
+2Q				: Example response: Ver02*3.27
+3Q				: Example response: Ver03*1.08(1.82-DMP128         -Wed, 16 Jan 2003 00:00:00 GMT)
+4Q				: Example response: Ver04*1.11*(1.82-DMP128         -Wed, 04 Sep 2024 09:15:24 GMT)
+20Q				: Firmware version (on Plus series). Example response: 1.11.000-b006
+N				: Part number
+I				: Not sure, could be the capability of the unit - returns V00X00 A12X08[0x0D][0x0A] on DMP128 and V00X00 A06X04 E16X16 on DMP64+
+[0x1B]CN[0x0D]			: Device name
+[0x1B]CH[0x0D]			: MAC Address
+
+The following commands fields are not padded
+[0x1B]<channel>NI[0x0D]		: Get name for input <channel>. Example response: Nmi01,Input #1[0x0D][0x0A]
+[0x1B]<channel>,<name>NI[0x0D]	: Update Input <channel> label name
+[0x1B]<channel>NE[0x0D]		: Get name for Exp <channel>
+[0x1B]<channel>NO[0x0D]		: Get name for output <channel>
+[0x1B]<channel>,<name>NO[0x0D]	: Update Output <channel> label name
+[0x1B]<channel>NL[0x0D]		: Get name for virtual return <channel> (numeric value of letter)
+[0x1B]<channel>NG[0x0D]		: Get name for group <channel>
+[0x1B]<channel>NM[0x0D]		: Also appears to get a group name, but different to previous.
+[0x1B]<password>CA[0x0D]	: Change admin password to <password>. To delete password, use ' ' as <password>. Example response: Ipa ****[0x0D][0x0A]
+[0x1B]<password>CU[0x0D]	: Change user password to <password> (same as Admin).
+[0x1B]CT[0x0D]			: Get current time and date
+[0x1B]CZ[0x0D]			: Get current timezone offset? Example response: Ipz00:00[0x0D][0x0A]
+[0x1B]CX[0x0D]			: Example response: Ipx002[0x0D][0x0A] on DMP128
+[0x1B]CS[0x0D]			: Get Netmask. Example response: Ips 255.255.0.0[0x0D][0x0A]
+[0x1B]<netmask>CS[0x0D]		: Change Netmask to <netmask>. Example response: Ips <netmask>[0x0D][0x0A]
+[0x1B]CG[0x0D]			: Get Gateway. Example response: Ipg 0.0.0.0[0x0D][0x0A]
+[0x1B]CI[0x0D]			: Get IP Address. Example response: Ipi 192.168.0.210[0x0D][0x0A]
+[0x1B]CM[0x0D]			: DNS servers??? Example response: 0.0.0.0,,,,[0x0D][0x0A]
+[0x1B]DH[0x0D]			: Get DHCP setting? 0=Off, 1=On? Example response: Idh0[0x0D][0x0A]
+[0x1B]<port>CP[0x0D]		: Get RS232 connection details for port <port>. Example response: Cpn1 Ccp38400,N,8,1[0x0D][0x0A]
+[0x1B]<port>*<baud>,<parity,<bits>,<stopbits>CP[0x0D]
+				: Change RS232 settings to <baud>, <parity> (N or O), <bits>, <stopbits> for RS232 port <port> (1 or 2).
+[0x1B]CK[0x0D]			: Not sure - returns 12[0x0D][0x0A] on DMP128 and Pvl12[0x0D][0x0A] on DMP64+.
+[0x1B]CV[0x0D]			: Not sure - returns Vrb3[0x0D][0x0A] on DMP128 and DMP64+.
+[0x1B]3CV[0x0D]			: Not sure - returns Vrb3[0x0D][0x0A] on DMP128 and DMP64+.
+[0x1B]0*65000TC[0x0D]		: Not sure - returns Pti0*65000[0x0D][0x0A] on DMP128 and DMP 64+.
+[0x1B]D1UNAM[0x0D]		: Get USB name - Example response: UnamD1*DMP Plus[0x0D][0x0A] on DMP64+.
+[0x1B]D1*<name>UNAM[0x0D]	: Renames the USB to <name>. Example response: UnamD1*DMP Plus[0x0D][0x0A]
+[0x1B]AUSBC[0x0D]		: Number of USB A? Example response: 1[0x0D][0x0A] on DMP64+.
+[0x1B]CUSBC[0x0D]		: Number of USB C? - Example response: 2[0x0D][0x0A] on DMP64+.
+
+The following commands have the same format as the documented commands (note padding for channel and level)
+[0x1B]v<io>00<channel>Au[0x0D]	: Get level for <channel>
+[0x1B]<io>00<channel>Au[0x0D]	: Get info for <channel> : ???*<current>*<level>*<muted>*<polarity>*?*???*<phantom>
+
+Documented commands:
+wG<io>00<channel>*<level>AU[0x0D]	: Set gain for <channel> to <level>
+wM<io>00<channel>*<on/off>AU[0x0D]	: Set mute for <channel> to on or off
+wG<io>00<channel>AU[0x0D]		: Get level for <channel>
+wM<io>00<channel>AU[0x0D]		: Get mute for <channel>
+
+Notes:
+<io> is 4 for input, 5 for virtual return, 6 for output
+<level>: Input range is -180 to 800 (wG40000*-0180AU to wG40000*00800AU) for -18dB to +80dB on Plus series. Output range is -1000 to 0 (wG60000*-1000AU to wG60000*00000AU) for -100dB to 0dB on Plus series. Non-Plus is level + 2048 : i.e., 01868 to 02848 (for -18dB to +80dB), or 01048 to 02048 (for -100dB to 0dB)
+<channel> is 00 to 11 for channels 1-12. Then 12 to 19 for Aux inputs 1 to 8, or 8 to 15 for Aux outputs 1 to 8.
+<on/off> can be 0 for off or 1 for on.
+Documentation says command terminator is [0x0D][0x0A], but it appears that [0x0D] is sufficient.
+The two zeros between <io> and <channel> do have some significance. However, I am not going to repeat the published documentation from Extron. That is not the aim of this document.
+
+There is no welcome message on serial communications. The welcome message on TCP is:
+[0x0D][0x0A](c) Copyright 2012-2016, Extron Electronics, DMP 128, V1.11, 60-1211-01[0x0D][0x0A]Wed, 10 Sep 2025 16:35:10[0x0D][0x0A]
+
+If there is a password, this is followed with:
+[0x0D][0x0A]Password:
+
+Send the password in the clear, followed by [0x0D]. Response will be:
+******[0x0D][0x0A]Login Administrator[0x0D][0x0A]
+if the administrator password has been entered.
+
+Toolbelt Discovery
+------------------
+To discover devices on the network, broadcast a UDP packet on port 4502 to 255.255.255.255:
+fD2200007FFFFFFF0000FFF0FFFFFFF00000004E[{"method":"get","uri":"/scm/devices/self","replyto":"/scm/devices/self"}]fE
+Replies will come back on the same port.
+Example responses:
+IPCP Pro 350:  fD220000000000010000FFF07FFFFFFF00000203[{"method":"set","uri":"/scm/devices/self","value":{"descr":"IP Link Pro Control Processor","model":"IPCP Pro 350","partnum":"60-1417-01","snum":"A15MVU7","version":"3.18.0001-b002","location":"Not Specified","hostname":"IPCP-Pro-350-0D-76-F3","interface":"eth0","nic_count":1,"mac_address":"00-05-A6-0D-76-F3","ip_address":"192.168.0.212","gateway":"192.168.0.254","subnet_mask":"255.255.255.0","dhcp":0,"proxy_discovery":1,"av_discovery":0,"boxid":1,"systemid":1,"subboxid":0,"self_serial_number":"A15MVU7"}}]fE
+IPCP Pro 255:  fD220000000000010000FFF07FFFFFFF00000206[{"method":"set","uri":"/scm/devices/self","value":{"descr":"IP Link Pro Control Processor","model":"IPCP Pro 255","partnum":"60-1431-01","snum":"A2RPUQR","version":"3.18.0001-b002","location":"Not Specified","hostname":"IPCP-Pro-255-24-BB-82","interface":"eth0","nic_count":2,"mac_address":"00-05-A6-24-BB-82","ip_address":"192.168.0.203","gateway":"192.168.0.254","subnet_mask":"255.255.255.0","dhcp":0,"proxy_discovery":1,"av_discovery":1,"boxid":1,"systemid":7674,"subboxid":0,"self_serial_number":"A2RPUQR"}}]fE
+DMP 64 Plus C: fD220000001B13870000FFF07FFFFFFF000001B5[{"method":"set","uri":"/scm/devices/self","value":{"descr":"Digital audio matrix processor with AEC","model":"DMP 64 Plus C","partnum":"60-1823-01","snum":"A2746P2","version":"1.11.0000-b006","location":"Not Specified","hostname":"DMP-64-Plus-C-1B-13-87","interface":"eth0","nic_count":1,"ip_address":"192.168.0.209","mac_address":"00-05-A6-1B-13-87","proxy_discovery":0,"av_discovery":0,"boxid":1774471,"systemid":1,"subboxid":0}}]fE
+
+Not sure what the leading hex sequence is, or the ending hex number. It can be seen that half of the MAC address is sometimes put into the leading hex sequence.
+
+Gerald J. Holdsworth
+September 2025
