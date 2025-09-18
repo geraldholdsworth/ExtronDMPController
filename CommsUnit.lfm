@@ -1,0 +1,78 @@
+object CommsForm: TCommsForm
+  Left = 357
+  Height = 135
+  Top = 44
+  Width = 390
+  BorderIcons = []
+  BorderStyle = bsDialog
+  Caption = 'Digital Matrix Processor'
+  ClientHeight = 135
+  ClientWidth = 390
+  Position = poScreenCenter
+  LCLVersion = '4.0.0.4'
+  OnShow = FormShow
+  object RS232: TRadioButton
+    Left = 104
+    Height = 18
+    Top = 32
+    Width = 64
+    Caption = 'RS232'
+    TabOrder = 0
+  end
+  object TCP: TRadioButton
+    Left = 104
+    Height = 18
+    Top = 72
+    Width = 50
+    Caption = 'TCP'
+    Checked = True
+    TabOrder = 2
+    TabStop = True
+  end
+  object IPAddress: TEdit
+    Left = 208
+    Height = 21
+    Top = 72
+    Width = 152
+    TabOrder = 1
+    Text = 'IPAddress'
+  end
+  object Label1: TLabel
+    Left = 0
+    Height = 24
+    Top = 0
+    Width = 390
+    Align = alTop
+    Alignment = taCenter
+    Caption = 'Please select communication method'
+    Font.Height = -21
+    ParentFont = False
+  end
+  object OKButton: TButton
+    Left = 312
+    Height = 25
+    Top = 104
+    Width = 75
+    Caption = 'OK'
+    TabOrder = 3
+    OnClick = OKButtonClick
+  end
+  object CancelButton: TButton
+    Left = 0
+    Height = 25
+    Top = 104
+    Width = 75
+    Caption = 'Cancel'
+    TabOrder = 4
+    OnClick = CancelButtonClick
+  end
+  object SerialPortList: TComboBox
+    Left = 208
+    Height = 20
+    Top = 32
+    Width = 157
+    ItemHeight = 18
+    Style = csDropDownList
+    TabOrder = 5
+  end
+end
