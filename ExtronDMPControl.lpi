@@ -13,6 +13,12 @@
       </XPManifest>
       <Icon Value="0"/>
     </General>
+    <VersionInfo>
+      <UseVersionInfo Value="True"/>
+      <MajorVersionNr Value="1"/>
+      <MinorVersionNr Value="1"/>
+      <Language Value="0809"/>
+    </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>
       <Item Name="Debug">
@@ -368,13 +374,17 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
+      <Unit>
+        <Filename Value="RS232Client.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="Synapse"/>
+      <OtherUnitFiles Value="Synapse;../GJHCustomConponents"/>
       <UnitOutputDirectory Value="lib/Debug/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

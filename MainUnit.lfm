@@ -21,355 +21,6 @@ object MainForm: TMainForm
     ClientHeight = 739
     ClientWidth = 598
     TabOrder = 0
-    object tbInputGain_ch1: TTrackBar
-      Tag = 1
-      Left = 0
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      ParentColor = False
-      TabOrder = 0
-    end
-    object lbInput1: TLabel
-      Left = 0
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 1'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbInputGain_ch2: TTrackBar
-      Tag = 2
-      Left = 50
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 1
-    end
-    object lbInput2: TLabel
-      Left = 50
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 2'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbInputGain_ch3: TTrackBar
-      Tag = 3
-      Left = 100
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 2
-    end
-    object lbInput3: TLabel
-      Left = 100
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 3'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbInputGain_ch4: TTrackBar
-      Tag = 4
-      Left = 150
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 3
-    end
-    object lbInput4: TLabel
-      Left = 150
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 4'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbInputGain_ch5: TTrackBar
-      Tag = 5
-      Left = 200
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 4
-    end
-    object lbInput5: TLabel
-      Left = 200
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 5'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbInputGain_ch6: TTrackBar
-      Tag = 6
-      Left = 250
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 5
-    end
-    object lbInput6: TLabel
-      Left = 250
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 6'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbInputGain_ch7: TTrackBar
-      Tag = 7
-      Left = 300
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 6
-    end
-    object lbInput7: TLabel
-      Left = 300
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 7'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbInputGain_ch8: TTrackBar
-      Tag = 8
-      Left = 350
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 7
-    end
-    object lbInput8: TLabel
-      Left = 350
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 8'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbInputGain_ch9: TTrackBar
-      Tag = 9
-      Left = 400
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 8
-    end
-    object lbInput9: TLabel
-      Left = 400
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 9'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbInputGain_ch10: TTrackBar
-      Tag = 10
-      Left = 450
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 9
-    end
-    object lbInput10: TLabel
-      Left = 450
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 10'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbInputGain_ch11: TTrackBar
-      Tag = 11
-      Left = 500
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 10
-    end
-    object lbInput11: TLabel
-      Left = 500
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 11'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbInputGain_ch12: TTrackBar
-      Tag = 12
-      Left = 550
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 800
-      Min = -180
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 11
-    end
-    object lbInput12: TLabel
-      Left = 550
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Mic 12'
-      Font.Color = clBlue
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
     object MuteIn_ch1: TPanel
       Tag = 1
       Left = 0
@@ -381,7 +32,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 12
+      TabOrder = 0
       OnClick = MuteClick
     end
     object MuteIn_ch2: TPanel
@@ -395,7 +46,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 13
+      TabOrder = 1
       OnClick = MuteClick
     end
     object MuteIn_ch4: TPanel
@@ -409,7 +60,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 14
+      TabOrder = 2
       OnClick = MuteClick
     end
     object MuteIn_ch3: TPanel
@@ -423,7 +74,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 15
+      TabOrder = 3
       OnClick = MuteClick
     end
     object MuteIn_ch8: TPanel
@@ -437,7 +88,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 16
+      TabOrder = 4
       OnClick = MuteClick
     end
     object MuteIn_ch7: TPanel
@@ -451,7 +102,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 17
+      TabOrder = 5
       OnClick = MuteClick
     end
     object MuteIn_ch6: TPanel
@@ -465,7 +116,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 18
+      TabOrder = 6
       OnClick = MuteClick
     end
     object MuteIn_ch5: TPanel
@@ -479,7 +130,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 19
+      TabOrder = 7
       OnClick = MuteClick
     end
     object MuteIn_ch12: TPanel
@@ -493,7 +144,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 20
+      TabOrder = 8
       OnClick = MuteClick
     end
     object MuteIn_ch11: TPanel
@@ -507,7 +158,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 21
+      TabOrder = 9
       OnClick = MuteClick
     end
     object MuteIn_ch10: TPanel
@@ -521,7 +172,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 22
+      TabOrder = 10
       OnClick = MuteClick
     end
     object MuteIn_ch9: TPanel
@@ -535,7 +186,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 23
+      TabOrder = 11
       OnClick = MuteClick
     end
   end
@@ -549,238 +200,6 @@ object MainForm: TMainForm
     ClientHeight = 739
     ClientWidth = 406
     TabOrder = 1
-    object tbOutputAtt_ch1: TTrackBar
-      Tag = 21
-      Left = 0
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 0
-      Min = -1000
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 0
-    end
-    object lbOutput1: TLabel
-      Left = 0
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Out 1'
-      Font.Color = clGreen
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbOutputAtt_ch2: TTrackBar
-      Tag = 22
-      Left = 50
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 0
-      Min = -1000
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 1
-    end
-    object lbOutput2: TLabel
-      Left = 50
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Out 2'
-      Font.Color = clGreen
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbOutputAtt_ch3: TTrackBar
-      Tag = 23
-      Left = 100
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 0
-      Min = -1000
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 7
-    end
-    object lbOutput3: TLabel
-      Left = 100
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Out 3'
-      Font.Color = clGreen
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbOutputAtt_ch4: TTrackBar
-      Tag = 24
-      Left = 150
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 0
-      Min = -1000
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 2
-    end
-    object lbOutput4: TLabel
-      Left = 150
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Out 4'
-      Font.Color = clGreen
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbOutputAtt_ch5: TTrackBar
-      Tag = 25
-      Left = 200
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 0
-      Min = -1000
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 3
-    end
-    object lbOutput5: TLabel
-      Left = 200
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Out 5'
-      Font.Color = clGreen
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbOutputAtt_ch6: TTrackBar
-      Tag = 26
-      Left = 250
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 0
-      Min = -1000
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 4
-    end
-    object lbOutput6: TLabel
-      Left = 250
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Out 6'
-      Font.Color = clGreen
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbOutputAtt_ch7: TTrackBar
-      Tag = 27
-      Left = 300
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 0
-      Min = -1000
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 5
-    end
-    object lbOutput7: TLabel
-      Left = 300
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Out 7'
-      Font.Color = clGreen
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
-    object tbOutputAtt_ch8: TTrackBar
-      Tag = 28
-      Left = 350
-      Height = 650
-      Top = 0
-      Width = 50
-      Max = 0
-      Min = -1000
-      Orientation = trVertical
-      Position = 0
-      Reversed = True
-      ScalePos = trRight
-      TickMarks = tmBoth
-      OnChange = FaderChange
-      TabOrder = 6
-    end
-    object lbOutput8: TLabel
-      Left = 350
-      Height = 30
-      Top = 650
-      Width = 50
-      Alignment = taCenter
-      AutoSize = False
-      Caption = 'Out 8'
-      Font.Color = clGreen
-      Font.Height = -11
-      ParentFont = False
-      WordWrap = True
-    end
     object MuteOut_ch1: TPanel
       Tag = 21
       Left = 0
@@ -792,7 +211,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 8
+      TabOrder = 0
       OnClick = MuteClick
     end
     object MuteOut_ch2: TPanel
@@ -806,7 +225,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 9
+      TabOrder = 1
       OnClick = MuteClick
     end
     object MuteOut_ch3: TPanel
@@ -820,7 +239,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 10
+      TabOrder = 2
       OnClick = MuteClick
     end
     object MuteOut_ch4: TPanel
@@ -834,7 +253,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 11
+      TabOrder = 3
       OnClick = MuteClick
     end
     object MuteOut_ch5: TPanel
@@ -848,7 +267,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 12
+      TabOrder = 4
       OnClick = MuteClick
     end
     object MuteOut_ch6: TPanel
@@ -862,7 +281,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 13
+      TabOrder = 5
       OnClick = MuteClick
     end
     object MuteOut_ch7: TPanel
@@ -876,7 +295,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 14
+      TabOrder = 6
       OnClick = MuteClick
     end
     object MuteOut_ch8: TPanel
@@ -890,7 +309,7 @@ object MainForm: TMainForm
       Color = clLime
       ParentBackground = False
       ParentColor = False
-      TabOrder = 15
+      TabOrder = 7
       OnClick = MuteClick
     end
   end

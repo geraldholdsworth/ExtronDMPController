@@ -9,34 +9,14 @@ interface
 
 uses
  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ComCtrls, ExtCtrls,
- StdCtrls, Buttons, StrUtils, TCPClient, LazSynaSer;
+ StdCtrls, Buttons, StrUtils, TCPClient, RS232Client, GJHCustomComponents;
 
 type
 
  { TMainForm }
 
  TMainForm = class(TForm)
-   lbOutput1: TLabel;
-   lbOutput2: TLabel;
-   lbOutput3: TLabel;
-   lbOutput4: TLabel;
-   lbOutput5: TLabel;
-   lbOutput6: TLabel;
-   lbOutput7: TLabel;
-   lbOutput8: TLabel;
    Inputs: TGroupBox;
-   lbInput1: TLabel;
-   lbInput10: TLabel;
-   lbInput11: TLabel;
-   lbInput12: TLabel;
-   lbInput2: TLabel;
-   lbInput3: TLabel;
-   lbInput4: TLabel;
-   lbInput5: TLabel;
-   lbInput6: TLabel;
-   lbInput7: TLabel;
-   lbInput8: TLabel;
-   lbInput9: TLabel;
    MuteIn_ch11: TPanel;
    MuteIn_ch10: TPanel;
    MuteOut_ch1: TPanel;
@@ -58,26 +38,6 @@ type
    MuteIn_ch12: TPanel;
    Outputs: TGroupBox;
    MuteIn_ch1: TPanel;
-   tbInputGain_ch1: TTrackBar;
-   tbInputGain_ch10: TTrackBar;
-   tbInputGain_ch11: TTrackBar;
-   tbInputGain_ch12: TTrackBar;
-   tbOutputAtt_ch1: TTrackBar;
-   tbOutputAtt_ch2: TTrackBar;
-   tbOutputAtt_ch3: TTrackBar;
-   tbOutputAtt_ch4: TTrackBar;
-   tbOutputAtt_ch5: TTrackBar;
-   tbOutputAtt_ch6: TTrackBar;
-   tbOutputAtt_ch7: TTrackBar;
-   tbInputGain_ch2: TTrackBar;
-   tbOutputAtt_ch8: TTrackBar;
-   tbInputGain_ch3: TTrackBar;
-   tbInputGain_ch4: TTrackBar;
-   tbInputGain_ch5: TTrackBar;
-   tbInputGain_ch6: TTrackBar;
-   tbInputGain_ch7: TTrackBar;
-   tbInputGain_ch8: TTrackBar;
-   tbInputGain_ch9: TTrackBar;
    procedure Connect;
    procedure Disconnect;
    procedure FormCreate(Sender: TObject);
@@ -94,16 +54,14 @@ type
    procedure FaderChange(Sender: TObject);
  private
   Client      : TTCPClient;
-  SerClient   : TBlockSerial;
+  SerClient   : TRS232Client;
   NumInFaders : Integer;
   NumOutFaders: Integer;
   Fupdating   : Boolean;
-  InputFaders : array of TTrackBar;
+  InputFaders : array[0..11] of TRISCOSSlider;
   InputMutes  : array of TPanel;
-  InputLabels : array of TLabel;
-  OutputFaders: array of TTrackBar;
+  OutputFaders: array[0..7] of TRISCOSSlider;
   OutputMutes : array of TPanel;
-  OutputLabels: array of TLabel;
   Modifier    : Integer;
   const //DMP Part numbers (from www.Extron.com)
    DMP128     : array[0..2] of String = ('60-1211-01',   //DMP 128
@@ -125,6 +83,7 @@ type
    Fout= '6';
    gains='wG';
    mutes='wM';
+   FaderWidth = 50;
  public
   CommsOverTCP  : Boolean;
   CommsOverRS232: Boolean;
@@ -142,21 +101,74 @@ uses CommsUnit;
 { TMainForm }
 
 procedure TMainForm.FormCreate(Sender: TObject);
+var
+ Index: Integer=0;
 begin
- InputFaders :=[tbInputGain_ch1,tbInputGain_ch2 ,tbInputGain_ch3 ,tbInputGain_ch4,
-                tbInputGain_ch5,tbInputGain_ch6 ,tbInputGain_ch7 ,tbInputGain_ch8,
-                tbInputGain_ch9,tbInputGain_ch10,tbInputGain_ch11,tbInputGain_ch12];
+ for Index:=0 to 11 do
+ begin
+  InputFaders[Index]:=TRISCOSSlider.Create(Inputs as TComponent);
+  InputFaders[Index].Parent:=Inputs as TWinControl;
+  InputFaders[Index].Visible:=True;
+  InputFaders[Index].Top:=0;
+  InputFaders[Index].Left:=Index*FaderWidth;
+  InputFaders[Index].Font.Size:=6;
+  InputFaders[Index].Colour:=$000000;
+  InputFaders[Index].Min:=-180;
+  InputFaders[Index].Max:=800;
+  InputFaders[Index].Position:=0;
+  InputFaders[Index].Pointers:=True;
+  InputFaders[Index].Faders:=True;
+  InputFaders[Index].FaderColour:=csRed;
+  InputFaders[Index].GradColour:=$FF0000;
+  InputFaders[Index].FillSlider:=True;
+  InputFaders[Index].Width:=FaderWidth;
+  InputFaders[Index].Height:=680;
+  InputFaders[Index].HexValue:=False;
+  InputFaders[Index].ValueDiv:=10;
+  InputFaders[Index].Suffix:='dB';
+  InputFaders[Index].Caption:='Input';
+  InputFaders[Index].ShowValue:=True;
+  InputFaders[Index].Name:='Input'+IntToStr(Index+1);
+  InputFaders[Index].Border3D:=True;
+  InputFaders[Index].Outline:=csOutNone;
+  InputFaders[Index].Tag:=Index+1;
+  InputFaders[Index].OnChange:=@FaderChange;
+ end;
+ for Index:=0 to 7 do
+ begin
+  OutputFaders[Index]:=TRISCOSSlider.Create(Outputs as TComponent);
+  OutputFaders[Index].Parent:=Outputs as TWinControl;
+  OutputFaders[Index].Visible:=True;
+  OutputFaders[Index].Top:=0;
+  OutputFaders[Index].Left:=Index*FaderWidth;
+  OutputFaders[Index].Font.Size:=6;
+  OutputFaders[Index].Colour:=$000000;
+  OutputFaders[Index].Min:=-1000;
+  OutputFaders[Index].Max:=0;
+  OutputFaders[Index].Position:=0;
+  OutputFaders[Index].Pointers:=True;
+  OutputFaders[Index].Faders:=True;
+  OutputFaders[Index].FaderColour:=csBlue;
+  OutputFaders[Index].GradColour:=$FF0000;
+  OutputFaders[Index].FillSlider:=True;
+  OutputFaders[Index].Width:=FaderWidth;
+  OutputFaders[Index].Height:=680;
+  OutputFaders[Index].HexValue:=False;
+  OutputFaders[Index].ValueDiv:=10;
+  OutputFaders[Index].Suffix:='dB';
+  OutputFaders[Index].Caption:='Input';
+  OutputFaders[Index].ShowValue:=True;
+  OutputFaders[Index].Name:='Output'+IntToStr(Index+1);
+  OutputFaders[Index].Border3D:=True;
+  OutputFaders[Index].Outline:=csOutNone;
+  OutputFaders[Index].Tag:=Index+21;
+  OutputFaders[Index].OnChange:=@FaderChange;
+ end;
  InputMutes  :=[MuteIn_ch1,MuteIn_ch2 ,MuteIn_ch3 ,MuteIn_ch4,
                 MuteIn_ch5,MuteIn_ch6 ,MuteIn_ch7 ,MuteIn_ch8,
                 MuteIn_ch9,MuteIn_ch10,MuteIn_ch11,MuteIn_ch12];
- InputLabels :=[lbInput1,lbInput2,lbInput3,lbInput4 ,lbInput5 ,lbInput6,
-                lbInput7,lbInput8,lbInput9,lbInput10,lbInput11,lbInput12];
- OutputFaders:=[tbOutputAtt_ch1,tbOutputAtt_ch2 ,tbOutputAtt_ch3 ,tbOutputAtt_ch4,
-                tbOutputAtt_ch5,tbOutputAtt_ch6 ,tbOutputAtt_ch7 ,tbOutputAtt_ch8];
  OutputMutes :=[MuteOut_ch1,MuteOut_ch2,MuteOut_ch3,MuteOut_ch4,
                 MuteOut_ch5,MuteOut_ch6,MuteOut_ch7,MuteOut_ch8];
- OutputLabels:=[lbOutput1,lbOutput2,lbOutput3,lbOutput4,
-                lbOutput5,lbOutput6,lbOutput7,lbOutput8];
 end;
 
 procedure TMainForm.Connect;
@@ -170,13 +182,9 @@ begin
   end;
   if(CommsOverRS232)and(CommsForm.SerialPortList.ItemIndex>=0)then
   begin
-   SerClient:=TBlockSerial.Create;
-   SerClient.LinuxLock:=False;
-   {$IFDEF UNIX}
-   SerClient.NonBlock:=True;
-   {$ENDIF}
-   SerClient.Connect(CommsForm.SerialPortList.Items[CommsForm.SerialPortList.ItemIndex]);
-   SerClient.Config(38400,8,'N',SB1,false,false);
+   SerClient:=TRS232Client.Create;
+   SerClient.Port:=CommsForm.SerialPortList.Items[CommsForm.SerialPortList.ItemIndex];
+   SerClient.Connect;
   end;
 // end;
 end;
@@ -185,32 +193,24 @@ procedure TMainForm.Disconnect;
 begin
  if IsConnected then
  begin
-  if CommsOverTCP then Client.Free;
-  if CommsOverRS232 then
-  begin
-   SerClient.Free;
-   SerClient:=nil;
-  end;
+  if CommsOverTCP   then Client.Free;
+  if CommsOverRS232 then SerClient.Free;
  end;
 end;
 
 function TMainForm.IsConnected: Boolean;
 begin
  Result:=False;
- if CommsOverTCP then Result:=Client.Connected;
- if CommsOverRS232 then Result:=SerClient<>nil;
+ if CommsOverTCP   then Result:=Client.Connected;
+ if CommsOverRS232 then Result:=SerClient.Connected;
 end;
 
 procedure TMainForm.Send(query: String);
 begin
  if IsConnected then
  begin
-  if CommsOverTCP then Client.Send(query);
-  if CommsOverRS232 then
-  begin
-   SerClient.SendString(query);
-   Sleep(100); //Make sure we don't rush it
-  end;
+  if CommsOverTCP   then Client.Send(query);
+  if CommsOverRS232 then SerClient.Send(query);
  end;
 end;
 
@@ -222,18 +222,8 @@ begin
  Result:='';
  if IsConnected then
  begin
-  if CommsOverTCP then Result:=Client.Receive;
-  if CommsOverRS232 then
-  begin
-   status:=0;
-   //And while there is data to be read
-   while SerClient.WaitingData>0 do
-   begin
-    return:=SerClient.RecvPacket(0);
-    status:=SerClient.LastError;
-    if status=0 then Result:=Result+return; //Add it to the return string
-   end;
-  end;
+  if CommsOverTCP   then Result:=Client.Receive;
+  if CommsOverRS232 then Result:=SerClient.Receive;
  end;
 end;
 
@@ -242,8 +232,8 @@ begin
  Result:='';
  if IsConnected then
  begin
-  if CommsOverTCP then Result:=Client.LastError;
-  if CommsOverRS232 then Result:=SerClient.LastErrorDesc;
+  if CommsOverTCP   then Result:=Client.LastError;
+  if CommsOverRS232 then Result:=SerClient.LastError;
  end;
 end;
 
@@ -299,31 +289,27 @@ begin
     begin
      InputFaders[Fader-1].Visible:=True;
      InputMutes[Fader-1].Visible :=True;
-     InputLabels[Fader-1].Visible:=True;
     end
     else
     begin
      InputFaders[Fader-1].Visible:=False;
      InputMutes[Fader-1].Visible :=False;
-     InputLabels[Fader-1].Visible:=False;
     end;
     if Fader<=8 then
      if Fader<=NumOutFaders then
      begin
       OutputFaders[Fader-1].Visible:=True;
       OutputMutes[Fader-1].Visible :=True;
-      OutputLabels[Fader-1].Visible:=True;
      end
      else
      begin
       OutputFaders[Fader-1].Visible:=False;
       OutputMutes[Fader-1].Visible :=False;
-      OutputLabels[Fader-1].Visible:=False;
      end;
    end;
    //Adjust the widths
-   Inputs.Width            :=InputMutes[NumInFaders-1].Left+75;
-//   Outputs.Width           :=OutputMutes[NumOutFaders-1].Left+75;
+   Inputs.Width            :=(FaderWidth+1)*12;
+   Outputs.Width           :=(FaderWidth+1)*8;
 //   Outputs.Left            :=Inputs.Width+15;
 //   Width                   :=Outputs.Left+Outputs.Width+15; //Should always be 1024
    //Update the fader levels, mute buttons, and labels
@@ -357,7 +343,7 @@ begin
  if(IsConnected)and(not Fupdating)then
  begin
   //Get the fader number
-  Fader:=(Sender as TTrackBar).Tag;
+  Fader:=(Sender as TRISCOSSlider).Tag;
   //Begin building the query to send
   query:=gains;
   //Input
@@ -368,7 +354,7 @@ begin
   end;
   //Build the rest of the query
   query:=query+'00'+RightStr('00'+IntToStr(Fader-1),2)+'*'
-          +RightStr('00000'+IntToStr((Sender as TTrackBar).Position+Modifier),5)
+          +RightStr('00000'+IntToStr((Sender as TRISCOSSlider).Position+Modifier),5)
           +'AU';
   //And send it to the device
   Send(query+#13#10);//Return is DsG40000*01868
@@ -537,8 +523,8 @@ begin
   buffer:=Trim(Receive);
   //If not empty
   if not buffer.IsEmpty then //Update the label
-   if Fader<20 then InputLabels[Fader-1].Caption  :=buffer
-               else OutputLabels[Fader-21].Caption:=buffer;
+   if Fader<20 then InputFaders[Fader-1].Caption  :=buffer
+               else OutputFaders[Fader-21].Caption:=buffer;
  end;
 end;
 

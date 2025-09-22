@@ -8,9 +8,9 @@
       <Unit>
         <Filename Value="ExtronDMPControl.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="5"/>
         <CursorPos X="46" Y="27"/>
-        <UsageCount Value="137"/>
+        <UsageCount Value="166"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -20,8 +20,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="42" Y="12"/>
-        <UsageCount Value="137"/>
+        <TopLine Value="106"/>
+        <CursorPos X="32" Y="116"/>
+        <UsageCount Value="166"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -31,19 +32,27 @@
         <ComponentName Value="CommsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="34"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="41"/>
         <CursorPos X="41" Y="51"/>
-        <UsageCount Value="123"/>
+        <UsageCount Value="152"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
+        <Filename Value="RS232Client.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="29" Y="81"/>
+        <UsageCount Value="49"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
         <Filename Value="TCPClient.pas"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="23"/>
-        <CursorPos X="22" Y="46"/>
-        <UsageCount Value="58"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="77"/>
+        <CursorPos X="34" Y="75"/>
+        <UsageCount Value="73"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -51,97 +60,20 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="408"/>
         <CursorPos X="23" Y="429"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/packages/fcl-net/src/ssockets.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="73"/>
         <CursorPos X="14" Y="70"/>
-        <UsageCount Value="3"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/packages/rtl-extra/src/unix/sockets.pp"/>
-        <UnitName Value="Sockets"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="56"/>
-        <CursorPos X="48" Y="57"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/packages/rtl-extra/src/inc/sockets.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="14"/>
-        <CursorPos X="42" Y="51"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/rtl/unix/baseunix.pp"/>
-        <UnitName Value="BaseUnix"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="3"/>
-        <CursorPos X="67" Y="43"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/rtl/unix/unixtype.pp"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/rtl/darwin/ptypes.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="16"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/packages/rtl-extra/src/darwin/unxsockh.inc"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/packages/rtl-extra/src/inc/socketsh.inc"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="16" Y="164"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/packages/rtl-extra/src/inc/stdsock.inc"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/packages/rtl-extra/src/bsd/osdefs.inc"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/rtl/unix/aliasptp.inc"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/rtl/unix/aliasctp.inc"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/rtl/unix/initc.pp"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="1"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../Lazarus 4/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3988"/>
         <CursorPos Y="4010"/>
-        <UsageCount Value="5"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../../../../Lazarus 4/fpc/3.2.2/sources/rtl/objpas/sysutils/syshelph.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="14"/>
-        <CursorPos X="35" Y="35"/>
         <UsageCount Value="2"/>
       </Unit>
       <Unit>
@@ -151,13 +83,13 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23" Y="554"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="../../../../../../Lazarus 4/lcl/lcltype.pp"/>
         <UnitName Value="LCLType"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="../CameraControl/CC_SynaSer.pas"/>
@@ -165,28 +97,28 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2377"/>
         <CursorPos X="33" Y="2397"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="CC_SynaUtil.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="65"/>
         <CursorPos X="32" Y="87"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="CC_SynaSer.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="97"/>
         <CursorPos X="13" Y="119"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="Synapse/synaser.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2425"/>
         <CursorPos X="17" Y="2471"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="17"/>
       </Unit>
       <Unit>
         <Filename Value="CC_SynaFPC.pas"/>
@@ -194,7 +126,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="39"/>
         <CursorPos X="16" Y="58"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="../Old and Test Projects/LG Remote/MainUnit.pas"/>
@@ -204,127 +136,162 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="130"/>
         <CursorPos X="38" Y="143"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="Synapse/lazsynaser.pas"/>
         <UnitName Value="LazSynaSer"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="353"/>
-        <CursorPos X="68" Y="389"/>
-        <UsageCount Value="31"/>
+        <TopLine Value="354"/>
+        <CursorPos X="21" Y="393"/>
+        <UsageCount Value="28"/>
       </Unit>
       <Unit>
         <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="1172"/>
+        <CursorPos X="49" Y="1356"/>
+        <UsageCount Value="23"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Synapse/lazserial.pas"/>
+        <UnitName Value="LazSerial"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="59"/>
-        <UsageCount Value="10"/>
+        <TopLine Value="78"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../GJHCustomConponents/MainUnit.pas"/>
+        <ComponentName Value="MainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="145"/>
+        <CursorPos X="29" Y="175"/>
+        <UsageCount Value="7"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="25">
+    <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="MainUnit.pas"/>
-        <Caret Line="214" Column="19" TopLine="179"/>
+        <Caret Line="526" Column="33" TopLine="294"/>
       </Position>
       <Position>
         <Filename Value="MainUnit.pas"/>
-        <Caret Line="216" Column="22" TopLine="181"/>
+        <Caret Line="54" Column="18" TopLine="38"/>
       </Position>
       <Position>
         <Filename Value="MainUnit.pas"/>
-        <Caret Line="217" Column="22" TopLine="182"/>
+        <Caret Line="310" Column="44" TopLine="283"/>
       </Position>
       <Position>
         <Filename Value="MainUnit.pas"/>
-        <Caret Line="92" Column="14" TopLine="80"/>
+        <Caret Line="144" Column="6"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="512" Column="49" TopLine="494"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="206" Column="16" TopLine="186"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="522" Column="56" TopLine="494"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="903" Column="61" TopLine="692"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="242" Column="26" TopLine="230"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="193" Column="18" TopLine="184"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="266" Column="14" TopLine="237"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="1276" Column="2" TopLine="1267"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="403" Column="37" TopLine="379"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="903" TopLine="880"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="85" Column="19" TopLine="65"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="195" Column="19" TopLine="184"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="206" Column="26" TopLine="171"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="1332" Column="2" TopLine="1322"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="208" Column="35" TopLine="173"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="892" Column="21" TopLine="887"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="258" Column="8" TopLine="223"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="174" Column="17" TopLine="169"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="282" Column="9" TopLine="248"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="1101" Column="2" TopLine="1094"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="122" Column="55" TopLine="95"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="206" Column="16" TopLine="165"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="269" TopLine="250"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="779" Column="52" TopLine="728"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="179" Column="90" TopLine="161"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="193" Column="18" TopLine="170"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="97" Column="30"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="1345" Column="24" TopLine="1319"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="183" TopLine="160"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="196" Column="16" TopLine="173"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="269" Column="10" TopLine="248"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="1225" Column="2" TopLine="1217"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="265" Column="14" TopLine="248"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="198" Column="15" TopLine="175"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="270" Column="30" TopLine="250"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="207" Column="16" TopLine="191"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="272" Column="19" TopLine="243"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="734" Column="45" TopLine="710"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="327" Column="3" TopLine="151"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="210" Column="19" TopLine="184"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="260" TopLine="222"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="687" Column="14" TopLine="654"/>
       </Position>
       <Position>
-        <Filename Value="MainUnit.pas"/>
-        <Caret Line="541" Column="59" TopLine="491"/>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="197" Column="16" TopLine="178"/>
+      </Position>
+      <Position>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="1233" Column="16" TopLine="1206"/>
+      </Position>
+      <Position>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="208" Column="15" TopLine="175"/>
+      </Position>
+      <Position>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="894" Column="7" TopLine="847"/>
+      </Position>
+      <Position>
+        <Filename Value="../GJHCustomConponents/GJHCustomComponents.pas"/>
+        <Caret Line="197" Column="18" TopLine="186"/>
       </Position>
     </JumpHistory>
     <RunParams>

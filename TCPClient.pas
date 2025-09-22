@@ -11,11 +11,11 @@ type
   TTCPClient = class
   private
    FSocket : LongInt;
+   function IsConnected: Boolean;
+   function GetLastError: String;
   public
    Constructor Create;
    Destructor Destroy; override;
-   function IsConnected: Boolean;
-   function GetLastError: String;
   published
    procedure Connect(IP: String; Port: Integer);
    procedure Disconnect;
@@ -51,25 +51,28 @@ What was the last error reported?
 -------------------------------------------------------------------------------}
 function TTCPClient.GetLastError: String;
 begin
- Result:='Unknown error ('+IntToStr(socketerror)+')';
- case socketerror of
-  EsockADDRINUSE      : Result:='Socket address is already in use';
-  EsockEACCESS        : Result:='Access forbidden';
-  EsockEBADF          : Result:='Alias: bad file descriptor';
-  EsockEFAULT         : Result:='An error occurred';
-  EsockEINTR          : Result:='Operation interrupted';
-  EsockEINVAL         : Result:='Invalid value specified';
-  EsockEMFILE         : Result:='Error code ?';
-  EsockEMSGSIZE       : Result:='Wrong message size';
-  EsockENOBUFS        : Result:='No buffer space available';
-  EsockENOTCONN       : Result:='Not connected';
-  EsockENOTSOCK       : Result:='File descriptor is not a socket';
-  EsockEPROTONOSUPPORT: Result:='Protocol not supported';
-  EsockEWOULDBLOCK    : Result:='Operation would block';
-  //Undocumented error numbers - results are theoritical
-  60                  : Result:='Request timed out';
-  65                  : Result:='No route to host - macOS is being an arsehole';
- end;
+ if IsConnected then
+ begin
+  Result:='Unknown error ('+IntToStr(socketerror)+')';
+  case socketerror of
+   EsockADDRINUSE      : Result:='Socket address is already in use';
+   EsockEACCESS        : Result:='Access forbidden';
+   EsockEBADF          : Result:='Alias: bad file descriptor';
+   EsockEFAULT         : Result:='An error occurred';
+   EsockEINTR          : Result:='Operation interrupted';
+   EsockEINVAL         : Result:='Invalid value specified';
+   EsockEMFILE         : Result:='Error code ?';
+   EsockEMSGSIZE       : Result:='Wrong message size';
+   EsockENOBUFS        : Result:='No buffer space available';
+   EsockENOTCONN       : Result:='Not connected';
+   EsockENOTSOCK       : Result:='File descriptor is not a socket';
+   EsockEPROTONOSUPPORT: Result:='Protocol not supported';
+   EsockEWOULDBLOCK    : Result:='Operation would block';
+   //Undocumented error numbers - results are theoritical
+   60                  : Result:='Request timed out';
+   65                  : Result:='No route to host';
+  end;
+ end else Result:='Not Connected';
 end;
 
 {-------------------------------------------------------------------------------
@@ -102,8 +105,11 @@ Disconnect
 -------------------------------------------------------------------------------}
 procedure TTCPClient.Disconnect;
 begin
- CloseSocket(FSocket);
- FSocket:=-1;
+ if IsConnected then
+ begin
+  CloseSocket(FSocket);
+  FSocket:=-1;
+ end;
 end;
 
 {-------------------------------------------------------------------------------
@@ -130,7 +136,7 @@ begin
 end;
 
 {-------------------------------------------------------------------------------
-Creates the class
+Sends a string
 -------------------------------------------------------------------------------}
 procedure TTCPClient.Send(Output: String);
 var
@@ -151,7 +157,7 @@ Destroys the class
 -------------------------------------------------------------------------------}
 destructor TTCPClient.Destroy;
 begin
- if IsConnected then CloseSocket(FSocket);
+ if IsConnected then Disconnect;
  inherited Destroy;
 end;
 
