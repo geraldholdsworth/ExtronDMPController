@@ -6,3 +6,5 @@ This started because I had collected some radio microphones and some Extron DMP 
 I say most of, because there are some that are not published...so, I employed WireShark while running Extron DSP Configurator to figure out the commands I needed (i.e., the labels for each input and output).<br>
 <br>
 Then this project was born. Still to be tested using the touchscreen, but looks good so far.<br>
+<br>
+You will need my custom components, specifically the slider (being used as a fader): https://github.com/geraldholdsworth/GJHCustomComponents/tree/main
